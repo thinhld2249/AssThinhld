@@ -7,17 +7,17 @@
                 alt="Profile Picture" class="profile-pic" />
         </div>
 
-        <div class="about-content container text-center">
+        <div class="about-content container text-center col-7">
             <div class="about-me-details bg-white text-center py-4 mx-auto container col-10">
-                <h1>ABOUT ME</h1>
-                <p>
+                <p class="cormon-font" style="font-size: 50px;">ABOUT ME</p>
+                <p class="arial-font pt-5">
                     I'm a paragraph. Click here to add your own text and edit me. It’s
                     easy. Just click “Edit Text” or double click me to add your own
                     content and make changes to the font. Feel free to drag and drop me
                     anywhere you like on your page. I’m a great place for you to tell a
                     story and let your users know a little more about you.
                 </p>
-                <p>
+                <p class="arial-font pt-5">
                     This is a great space to write a long text about your company and your
                     services. You can use this space to go into a little more detail about
                     your company. Talk about your team and what services you provide. Tell
@@ -69,5 +69,9 @@
     line-height: 1.6;
     color: #555;
     margin-bottom: 20px;
+}
+
+.arial-font {
+    font-family: Arial, Helvetica, sans-serif;
 }
 </style>

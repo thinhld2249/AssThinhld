@@ -13,4 +13,12 @@ import FooterComp from './FooterComp.vue';
   margin: 0;
   box-sizing: border-box;
 }
+
+.raleway-font {
+  font-family: 'raleway, sans-serif';
+}
+
+.cormon-font {
+  font-family: cormorantgaramond-light, cormorantgaramond, "cormorant garamond", serif;
+}
 </style>

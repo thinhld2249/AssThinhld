@@ -30,7 +30,9 @@
                                             <i @click="handleOptions(post)"
                                                 class="fa-solid fa-ellipsis-vertical fa-lg"></i>
                                             <a v-show="post.isShow"
-                                                class="share-post shadow bg-white p-2 position-absolute">
+                                                class="share-post shadow bg-white p-2 position-absolute"
+                                                data-bs-toggle="modal" data-bs-target="#share"
+                                                @click="handleShowShare(post)">
                                                 <i class="fa-solid fa-share pe-1"></i>Share Post
                                             </a>
                                         </button>
@@ -51,28 +53,34 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+        <DialogPop :post="selectedPost" />
     </div>
 </template>
 <script setup>
 import { InitPosts } from '@/resources/InitPosts';
-import { reactive } from 'vue';
+import { ref, reactive } from 'vue';
+import DialogPop from './DialogPop.vue';
+const showShare = ref(false);
+let selectedPost = ref(null)
 const posts = reactive(InitPosts);
 const countLikes = (post) => {
-    if (post.likeClass === '') {
-        post.likeClass = 'text-danger';
-        post.likes++;
-    } else {
-        post.likeClass = '';
-        post.likes--;
-    }
+    post.likeClass = post.likeClass === 'text-danger' ? '' : 'text-danger';
+    post.likes += post.likeClass ? 1 : -1;
 };
 
 const handleOptions = (post) => {
     post.isShow = !post.isShow;
+}
+
+const handleShowShare = (post) => {
+    showShare.value = !showShare.value;
+    selectedPost.value = post;
+    console.log(selectedPost);
 }
 </script>
 <style scoped>
@@ -80,14 +88,6 @@ const handleOptions = (post) => {
     background-image: url(/src/assets/background.jpg);
     background-repeat: no-repeat;
     background-size: contain;
-}
-
-.raleway-font {
-    font-family: 'raleway, sans-serif';
-}
-
-.cormon-font {
-    font-family: cormorantgaramond-light, cormorantgaramond, "cormorant garamond", serif;
 }
 
 .title-box {
