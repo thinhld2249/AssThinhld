@@ -5,7 +5,7 @@
 </template>
 <script setup>
 import NavBar from './NavBar.vue'
-import FooterComp from './FooterComp.vue';
+import FooterComp from './FooterComp.vue'
 </script>
 <style>
 * {
@@ -19,6 +19,7 @@ import FooterComp from './FooterComp.vue';
 }
 
 .cormon-font {
-  font-family: cormorantgaramond-light, cormorantgaramond, "cormorant garamond", serif;
+  font-family: cormorantgaramond-light, cormorantgaramond, 'cormorant garamond',
+    serif;
 }
 </style>

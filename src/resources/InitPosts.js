@@ -11,7 +11,23 @@ export const InitPosts = [
     likes: 9,
     likeClass: '',
     views: 470,
-    comments: 0,
+    comments: [
+      {
+        id: 1,
+        comment: 'comment1',
+        author: 'author1',
+      },
+      {
+        id: 2,
+        comment: 'comment1',
+        author: 'author2',
+      },
+      {
+        id: 3,
+        comment: 'comment3',
+        author: 'author3',
+      },
+    ],
     isShow: false,
   },
   {
@@ -26,7 +42,23 @@ export const InitPosts = [
     likes: 6,
     likeClass: '',
     views: 199,
-    comments: 0,
+    comments: [
+      {
+        id: 1,
+        comment: 'comment1',
+        author: 'author1',
+      },
+      {
+        id: 2,
+        comment: 'comment1',
+        author: 'author2',
+      },
+      {
+        id: 3,
+        comment: 'comment3',
+        author: 'author3',
+      },
+    ],
     isShow: false,
   },
   {
@@ -41,7 +73,23 @@ export const InitPosts = [
     likes: 5,
     likeClass: '',
     views: 98,
-    comments: 0,
+    comments: [
+      {
+        id: 1,
+        comment: 'comment1',
+        author: 'author1',
+      },
+      {
+        id: 2,
+        comment: 'comment1',
+        author: 'author2',
+      },
+      {
+        id: 3,
+        comment: 'comment3',
+        author: 'author3',
+      },
+    ],
     isShow: false,
   },
   {
@@ -56,7 +104,23 @@ export const InitPosts = [
     likes: 3,
     likeClass: '',
     views: 91,
-    comments: 0,
+    comments: [
+      {
+        id: 1,
+        comment: 'comment1',
+        author: 'author1',
+      },
+      {
+        id: 2,
+        comment: 'comment1',
+        author: 'author2',
+      },
+      {
+        id: 3,
+        comment: 'comment3',
+        author: 'author3',
+      },
+    ],
     isShow: false,
   },
   {
@@ -71,7 +135,23 @@ export const InitPosts = [
     likes: 3,
     likeClass: '',
     views: 116,
-    comments: 0,
+    comments: [
+      {
+        id: 1,
+        comment: 'comment1',
+        author: 'author1',
+      },
+      {
+        id: 2,
+        comment: 'comment1',
+        author: 'author2',
+      },
+      {
+        id: 3,
+        comment: 'comment3',
+        author: 'author3',
+      },
+    ],
     isShow: false,
   },
   {
@@ -86,7 +166,23 @@ export const InitPosts = [
     likes: 1,
     likeClass: '',
     views: 57,
-    comments: 0,
+    comments: [
+      {
+        id: 1,
+        comment: 'comment1',
+        author: 'author1',
+      },
+      {
+        id: 2,
+        comment: 'comment1',
+        author: 'author2',
+      },
+      {
+        id: 3,
+        comment: 'comment3',
+        author: 'author3',
+      },
+    ],
     isShow: false,
   },
 ]
