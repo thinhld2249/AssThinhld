@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div class="comments-section">
+      <div class="comments-section border p-4">
         <h2>Comments</h2>
         <div class="comment-form row">
           <input
@@ -56,7 +56,8 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { InitPosts } from '@/resources/InitPosts'
-
+import { useUser } from '../composables/useUser.js'
+const {user} = useUser();
 const route = useRoute()
 const post = ref(null)
 const newComment = ref('')
@@ -71,10 +72,11 @@ onMounted(() => {
 })
 
 const addComment = () => {
+  
   if (newComment.value.trim() !== '') {
     post.value.comments.push({
       id: post.value.comments.length + 1,
-      author: 'Guest',
+      author: user.name || 'Guest',
       comment: newComment.value,
     })
     newComment.value = ''
