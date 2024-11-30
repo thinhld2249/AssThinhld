@@ -1,9 +1,7 @@
 <template>
   <div class="body">
     <div class="title-section d-flex justify-content-center align-items-center">
-      <div
-        class="title-box bg-white d-flex flex-column justify-content-center align-items-center border border-dark"
-      >
+      <div class="title-box bg-white d-flex flex-column justify-content-center align-items-center border border-dark">
         <h1 class="cormon-font">THE BOOK LOVER</h1>
         <p class="raleway-font">READ ALL ABOUT IT</p>
       </div>
@@ -31,18 +29,11 @@
                   </div>
                   <div class="card-avatar col-2 position-relative">
                     <button class="border border-0 bg-white ps-4">
-                      <i
-                        @click="handleOptions(post)"
-                        class="fa-solid fa-ellipsis-vertical fa-lg"
-                      ></i>
-                      <RouterLink
-                        to="#"
-                        v-show="post.isShow"
-                        class="share-post shadow bg-white p-2 position-absolute"
-                        @click="handleShowShareOptions(post)"
-                      >
+                      <i @click="handleOptions(post)" class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+                      <div to="#" v-show="post.isShow" class="share-post shadow bg-white p-2 position-absolute" data-bs-toggle="modal" data-bs-target="#sharePost"
+                        @click="handleShowShareOptions(post)">
                         <i class="fa-solid fa-share pe-1"></i>Share Post
-                      </RouterLink>
+                      </div>
                     </button>
                   </div>
                 </div>
@@ -54,16 +45,13 @@
                 <div class="row raleway-font">
                   <p class="col-3">{{ post.views }} Views</p>
                   <p class="col-6">{{ post.comments.length }} Comments</p>
-                  <i
-                    :class="[
-                      'fa-regular',
-                      'fa-heart',
-                      'col-3',
-                      'pt-1',
-                      post.likeClass,
-                    ]"
-                    @click="countLikes(post)"
-                  >
+                  <i :class="[
+                    'fa-regular',
+                    'fa-heart',
+                    'col-3',
+                    'pt-1',
+                    post.likeClass,
+                  ]" @click="countLikes(post)">
                     &nbsp; {{ post.likes }}
                   </i>
                 </div>
@@ -73,8 +61,16 @@
         </div>
       </div>
     </div>
-    <DialogPop :post="selectedPost" v-model="showShare" />
   </div>
+  <div class="modal fade" id="sharePost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      <div class="modal-body">
+        <DialogPop :id="shareId" />
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 
 <script setup>
@@ -82,6 +78,7 @@ import { InitPosts } from '@/resources/InitPosts'
 import { ref, reactive } from 'vue'
 import DialogPop from './DialogPop.vue'
 const showShare = ref(false)
+const shareId = ref('');
 let selectedPost = ref(null)
 const posts = reactive(InitPosts)
 const countLikes = post => {
@@ -100,6 +97,7 @@ const handleOptions = post => {
 const handleShowShareOptions = post => {
   showShare.value = !showShare.value
   selectedPost.value = post
+  shareId.value = post.id;
   handleOptions(post)
   console.log(showShare.value)
 }

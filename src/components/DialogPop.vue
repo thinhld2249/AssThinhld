@@ -1,58 +1,53 @@
 <template>
-  <div
-    v-if="show"
-    name="modal"
-    class="modal-mask fade"
-    id="share"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    tabindex="-1"
-    aria-labelledby="staticBackdropLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="dialogTitle"></h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <slot name="body">Default body content</slot>
-        </div>
-        <div class="modal-footer">
-          <slot name="footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </slot>
-        </div>
-      </div>
+ <div class="text-center mt-3">
+    <p class="fw-bold mb-3">Share Post {{ id }}</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a 
+        href="" 
+        target="_blank" 
+        class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" 
+        style="width: 40px; height: 40px;" 
+        title="Share on Facebook"
+      >
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a 
+        href="" 
+        target="_blank" 
+        class="btn btn-info text-white rounded-circle d-flex align-items-center justify-content-center" 
+        style="width: 40px; height: 40px;" 
+        title="Share on X"
+      >
+        <i class="fab fa-twitter"></i>
+      </a>
+
+      <a 
+        href="" 
+        target="_blank" 
+        class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" 
+        style="width: 40px; height: 40px; background-color: #0077b5;" 
+        title="Share on LinkedIn"
+      >
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+
+      <button 
+        class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center" 
+        style="width: 40px; height: 40px;" 
+        @click="copyLink" 
+        title="Copy Link"
+      >
+        <i class="fas fa-link"></i>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-const props = defineProps({
-  post: Object,
-  show: Boolean,
-})
-
-onMounted(() => {
-  console.log('mounted')
-  console.log(props.post)
-})
+const props = ['id'];
 </script>
 
+
 <style scoped>
-/* Add custom styles for your modal if needed */
 </style>

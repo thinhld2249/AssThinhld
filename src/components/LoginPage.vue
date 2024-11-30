@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="container d-flex justify-content-center align-items-center vh-100"
-  >
+  <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px">
       <h2 class="text-center mb-4">Log In</h2>
       <form @submit.prevent="handleLogin">
@@ -29,7 +27,7 @@
       </form>
       <p class="text-center mt-3">
         Don't have an account?
-        <RouterLink to="/" class="text-primary text-decoration-none">
+        <RouterLink to="/register" class="text-primary text-decoration-none">
           Sign Up
         </RouterLink>
       </p>
@@ -40,8 +38,11 @@
 <script setup>
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUser } from '../composables/useUser'
 
+const { login } = useUser()
 const router = useRouter()
+
 const form = reactive({
   email: '',
   password: '',
@@ -49,13 +50,13 @@ const form = reactive({
 
 const handleLogin = () => {
   const storedPassword = localStorage.getItem(form.email)
+
   if (storedPassword === form.password) {
-    router.push('/')
+    login(form.email)
     alert(`Welcome back, ${form.email}!`)
+    router.push('/')
   } else {
     alert('Invalid email or password.')
   }
 }
 </script>
-
-<style scoped></style>
