@@ -85,16 +85,12 @@
   
   // Hàm thêm bài viết mới
   const addNewPost = () => {
-    // Gán author vào post
     newPost.author = author;
   
-    // Tạo id mới cho bài viết
     newPost.id = InitPosts.length + 1; 
   
-    // Thêm bài viết vào InitPosts
     InitPosts.push({ ...newPost });
   
-    // Reset form sau khi thêm
     Object.keys(newPost).forEach((key) => {
       if (Array.isArray(newPost[key])) {
         newPost[key] = [];
