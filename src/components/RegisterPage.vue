@@ -27,9 +27,7 @@
 <script setup>
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUser } from '@/composables/useUser'
 
-const { registerUser } = useUser()
 const router = useRouter()
 const form = reactive({
   email: '',
@@ -43,13 +41,16 @@ const handleRegister = () => {
     return
   }
 
-  const success = registerUser(form.email, form.password)
-  if (success) {
-    alert('Registration successful!')
-    router.push('/login')
-  } else {
+  var user = localStorage.getItem(form.email)
+  console.log(user)
+  console.log(user)
+  if (user) {
+
     alert('Email already exists!')
+    return
   }
+  localStorage.setItem(form.email,form.password)
+  router.push('/login')
 }
 </script>
 
